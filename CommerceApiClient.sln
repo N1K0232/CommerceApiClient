@@ -5,7 +5,7 @@ VisualStudioVersion = 17.0.31903.59
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{1A983E9E-0B86-47B3-AED5-76C772A2B6C4}"
 	ProjectSection(SolutionItems) = preProject
-		..\CommerceApi\.editorconfig = ..\CommerceApi\.editorconfig
+		.editorconfig = .editorconfig
 		README.md = README.md
 	EndProjectSection
 EndProject
