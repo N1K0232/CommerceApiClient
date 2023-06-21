@@ -7,4 +7,10 @@
 	  <ImplicitUsings>enable</ImplicitUsings>
   </PropertyGroup>
 
+  <ItemGroup>
+    <Reference Include="CommerceApi.Shared">
+      <HintPath>..\..\..\CommerceApi\src\CommerceApi.Shared\bin\Debug\netstandard2.1\CommerceApi.Shared.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+
 </Project>
