@@ -1,0 +1,28 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.0.31903.59
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CommerceApiClient", "src\CommerceApiClient\CommerceApiClient.csproj", "{24C9B3EC-9997-41B8-88DF-60AC268ADEDF}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CommerceApiClient.DependencyInjection", "src\CommerceApiClient.DependencyInjection\CommerceApiClient.DependencyInjection.csproj", "{F6736D2C-7E19-48A9-9AE9-5AC4527B3787}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{24C9B3EC-9997-41B8-88DF-60AC268ADEDF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{24C9B3EC-9997-41B8-88DF-60AC268ADEDF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{24C9B3EC-9997-41B8-88DF-60AC268ADEDF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{24C9B3EC-9997-41B8-88DF-60AC268ADEDF}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F6736D2C-7E19-48A9-9AE9-5AC4527B3787}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F6736D2C-7E19-48A9-9AE9-5AC4527B3787}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F6736D2C-7E19-48A9-9AE9-5AC4527B3787}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F6736D2C-7E19-48A9-9AE9-5AC4527B3787}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
