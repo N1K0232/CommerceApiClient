@@ -1,4 +1,7 @@
-﻿namespace CommerceApiClient;
+﻿using System.Net.Http.Headers;
+using System.Net.Mime;
+
+namespace CommerceApiClient;
 
 public class CommerceClient : ICommerceClient
 {
@@ -19,6 +22,9 @@ public class CommerceClient : ICommerceClient
             this.httpClient = httpClient;
             useInnerHttpClient = false;
         }
+
+        this.httpClient.DefaultRequestHeaders.Accept.Clear();
+        this.httpClient.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue(MediaTypeNames.Application.Json));
     }
 
     public void Dispose()
