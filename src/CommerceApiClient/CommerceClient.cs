@@ -1,5 +1,9 @@
-﻿using System.Net.Http.Headers;
+﻿using CommerceApi.Shared.Models.Requests;
+using CommerceApi.Shared.Models.Responses;
+using System.Net.Http.Headers;
+using System.Net.Http.Json;
 using System.Net.Mime;
+using System.Text.Json;
 
 namespace CommerceApiClient;
 
@@ -9,7 +13,6 @@ public class CommerceClient : ICommerceClient
     private CancellationTokenSource? tokenSource;
 
     private bool disposed = false;
-
     private readonly bool useInnerHttpClient;
 
     public CommerceClient(HttpClient? httpClient)
@@ -33,6 +36,26 @@ public class CommerceClient : ICommerceClient
     {
         Dispose(disposing: true);
         GC.SuppressFinalize(this);
+    }
+
+    public async Task<LoginResponse?> LoginAsync(LoginRequest loginRequest)
+    {
+        tokenSource ??= new CancellationTokenSource();
+
+        using var response = await httpClient.PostAsJsonAsync("/api/Users/Login", loginRequest, tokenSource.Token).ConfigureAwait(false);
+        if (response.IsSuccessStatusCode)
+        {
+            var content = await response.Content.ReadAsStringAsync().ConfigureAwait(false);
+            if (string.IsNullOrWhiteSpace(content))
+            {
+                return null;
+            }
+
+            var loginResponse = JsonSerializer.Deserialize<LoginResponse>(content);
+            return loginResponse;
+        }
+
+        return null;
     }
 
     private void Dispose(bool disposing)
