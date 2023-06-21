@@ -6,6 +6,8 @@ namespace CommerceApiClient;
 public class CommerceClient : ICommerceClient
 {
     private HttpClient httpClient;
+    private CancellationTokenSource? tokenSource;
+
     private bool disposed = false;
 
     private readonly bool useInnerHttpClient;
@@ -41,6 +43,12 @@ public class CommerceClient : ICommerceClient
             {
                 httpClient.Dispose();
                 httpClient = null!;
+            }
+
+            if (tokenSource != null)
+            {
+                tokenSource.Dispose();
+                tokenSource = null;
             }
 
             disposed = true;
