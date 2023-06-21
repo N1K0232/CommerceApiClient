@@ -8,6 +8,10 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <PackageReference Include="System.Net.Http.Json" Version="7.0.1" />
+  </ItemGroup>
+
+  <ItemGroup>
     <Reference Include="CommerceApi.Shared">
       <HintPath>..\..\..\CommerceApi\src\CommerceApi.Shared\bin\Debug\netstandard2.1\CommerceApi.Shared.dll</HintPath>
     </Reference>
