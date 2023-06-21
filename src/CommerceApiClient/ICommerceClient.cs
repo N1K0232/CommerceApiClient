@@ -5,5 +5,7 @@ namespace CommerceApiClient;
 
 public interface ICommerceClient : IDisposable
 {
+    void Cancel();
+
     Task<LoginResponse?> LoginAsync(LoginRequest loginRequest);
 }

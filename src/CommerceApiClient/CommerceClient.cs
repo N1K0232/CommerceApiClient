@@ -12,6 +12,9 @@ public class CommerceClient : ICommerceClient
     private HttpClient httpClient;
     private CancellationTokenSource? tokenSource;
 
+    private HttpRequestMessage? request = null;
+    private HttpResponseMessage? response = null;
+
     private bool disposed = false;
     private readonly bool useInnerHttpClient;
 
@@ -32,10 +35,12 @@ public class CommerceClient : ICommerceClient
         this.httpClient.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue(MediaTypeNames.Application.Json));
     }
 
-    public void Dispose()
+    public void Cancel()
     {
-        Dispose(disposing: true);
-        GC.SuppressFinalize(this);
+        if (tokenSource != null)
+        {
+            tokenSource.Cancel();
+        }
     }
 
     public async Task<LoginResponse?> LoginAsync(LoginRequest loginRequest)
@@ -58,6 +63,12 @@ public class CommerceClient : ICommerceClient
         return null;
     }
 
+    public void Dispose()
+    {
+        Dispose(disposing: true);
+        GC.SuppressFinalize(this);
+    }
+
     private void Dispose(bool disposing)
     {
         if (disposing && !disposed)
@@ -72,6 +83,18 @@ public class CommerceClient : ICommerceClient
             {
                 tokenSource.Dispose();
                 tokenSource = null;
+            }
+
+            if (request != null)
+            {
+                request.Dispose();
+                request = null;
+            }
+
+            if (response != null)
+            {
+                response.Dispose();
+                response = null;
             }
 
             disposed = true;
